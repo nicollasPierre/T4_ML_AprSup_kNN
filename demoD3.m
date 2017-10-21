@@ -4,8 +4,8 @@ load grupoDados3
 
 precisaoMaisAlta = 0;
 kPrecisao = 0;
-for i = 1:rows(grupoTrain)
-  rotuloPrevisto = meuKnn(grupoTrain, trainRots, grupoTest, i);
+%for i = 1:rows(grupoTrain)
+  rotuloPrevisto = meuKnn(grupoTrain, trainRots, grupoTest, 1);
   estaCorreto = rotuloPrevisto == testRots;
   numCorreto = sum(estaCorreto);
   totalNum = length(testRots);
@@ -13,9 +13,9 @@ for i = 1:rows(grupoTrain)
   
   if(precisaoMaisAlta < precisao)
     precisaoMaisAlta = precisao;
-    kPrecisao = i;
+    kPrecisao = 1;
   end
-end
+%end
 
 %Q2.1 = 
 ['A precisão mais alta é de ' num2str(precisaoMaisAlta) ', usando k = ' num2str(kPrecisao)]
