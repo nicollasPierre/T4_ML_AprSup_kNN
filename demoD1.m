@@ -14,6 +14,7 @@ for i = 1:rows(grupoTrain)
   if(precisaoMaisAlta < precisao)
     precisaoMaisAlta = precisao;
     kPrecisao = i;
+    rotuloPrevistoT = rotuloPrevisto;
   end
 end
 

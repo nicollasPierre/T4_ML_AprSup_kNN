@@ -11,32 +11,10 @@ indDistOrdenada = zeros(rows(dadosTeste),rows(dadosTrain));
       dist(teste,treino) = d;
     end
     % Ordene as distâncias. A ordem iX de cada elemento ordenado é importante:
-    [temp ind] = sort(dist(teste,:));% [distOrdenada ind] = sort(...);
-    distOrdenada(teste,:) = temp;
-    indDistOrdenada(teste,:) = ind; 
+    [temp ind] = sort(dist(teste,:));
+    
+    rotuloPrevisto(teste,1) = mode(rotuloTrain(ind(1:k)))';
+    
+    % [distOrdenada ind] = sort(...);
   end
-  
-    
-    
-  % O rótulo previsto corresponde ao rótulo do exemplo mais próximo (iX(1))
-  rotulos = zeros(rows(dist),1);
-  for i = 1:rows(dist)
-    qtdRotulos = zeros(3,1);%Quantidade de rotulos dentro do limite K 
-    %(qtdRotulos(1) contém X rotulos 1, qtdRotulos(2) contém Y rotulos 2...)
-    for j = 1:k
-      qtdRotulos(rotuloTrain(indDistOrdenada(i,j)))++;
-    end
-    
-    %Verifica qual tem mais rotulos
-    rotuloMaisProximo =  1;
-    for z = 2:3
-      if(qtdRotulos(rotuloMaisProximo) < qtdRotulos(z))
-        rotuloMaisProximo = z;
-      endif
-    end
-    
-    rotulos(i) = rotuloMaisProximo;
-  end
-  
-  rotuloPrevisto = rotulos;
 end
