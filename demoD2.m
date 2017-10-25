@@ -42,7 +42,7 @@ endfor
 
  
 %for i = 4:4%rows(grupoTrain)
-  %Q2.2 = Precisão de 98.333%, Normalizei os dados
+  %Q2.2 = Precisão de 98.333%, Normalizei os dados para que os dados não fiquem com muita distância entre si
   rotuloPrevisto = meuKnn(trainGroup, trainRots, testGroup, 1);
   estaCorreto = rotuloPrevisto == testRots;
   numCorreto = sum(estaCorreto);
